@@ -8,6 +8,8 @@ import { MdArrowBackIos } from "react-icons/md"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useAuth } from "../../hooks/auth"
+import placeholderavatar from "../../assets/avatarplaceholder.svg"
+import { api } from "../../services/api"
 
 export function Profile() {
   const navigate = useNavigate()
@@ -16,6 +18,9 @@ export function Profile() {
   const [email, setEmail] = useState(user.email)
   const [oldPassword, setOldPassword] = useState()
   const [newPassword, setNewPassword] = useState()
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : placeholderavatar
+  const [avatar, setAvatar] = useState(avatarUrl)
+  const [avatarFile, setAvatarFile] = useState(null)
 
   async function handleUpdate() {
     const user = {
@@ -25,7 +30,15 @@ export function Profile() {
       old_password: oldPassword,
     }
 
-    await updateProfile({ user })
+    await updateProfile({ user, avatarFile })
+  }
+
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0]
+    setAvatarFile(file)
+
+    const imgPreview = URL.createObjectURL(file)
+    setAvatar(imgPreview)
   }
 
   return (
@@ -40,13 +53,10 @@ export function Profile() {
 
       <Form>
         <Avatar>
-          <img
-            src="https://github.com/pedrodecf.png"
-            alt="Foto de perfil do usuário"
-          />
+          <img src={avatar} alt="Foto de perfil do usuário" />
           <label htmlFor="avatar">
             <FiCamera />
-            <input id="avatar" type="file" />
+            <input id="avatar" type="file" onChange={handleChangeAvatar} />
           </label>
         </Avatar>
         <p>Informações pessoais:</p>
