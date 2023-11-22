@@ -1,8 +1,8 @@
 import { Container } from "./styles"
 
-export function Button({ title, icon, $delete }) {
+export function Button({ title, icon, $delete, ...rest }) {
   return (
-    <Container type="button" $delete={$delete}>
+    <Container type="button" $delete={$delete} {...rest}>
       {icon}
       {title}
     </Container>
