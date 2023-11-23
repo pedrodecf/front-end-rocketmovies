@@ -3,23 +3,34 @@ import styled from "styled-components"
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  display: grid;
-  grid-template-areas:
+  display: flex;
+  flex-direction: column;
+  /* grid-template-areas:
     "header"
     "info"
     "content"
-    "footer";
+    "footer"; */
   overflow-y: hidden;
 
   > main {
+    height: 100%;
     grid-area: content;
     overflow-y: auto;
+  }
+
+  > div.data {
+    height: 100%;
   }
 `
 
 export const Info = styled.div`
   grid-area: info;
   padding: 4rem 12.4rem 0;
+
+  > div.view-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
 
   > div.movie-details {
     display: flex;
@@ -50,6 +61,7 @@ export const Info = styled.div`
       width: 1.6rem;
       height: 1.6rem;
       border-radius: 50%;
+      margin-bottom: 2px;
     }
 
     p {
@@ -79,7 +91,8 @@ export const Info = styled.div`
 export const Resume = styled.div`
   padding: 0 12.4rem 0;
   text-align: justify;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  font-family: "Roboto Serif", serif;
   font-weight: 400;
   line-height: 150%;
   color: var(--white);

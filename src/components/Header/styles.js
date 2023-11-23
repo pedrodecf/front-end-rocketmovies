@@ -6,11 +6,10 @@ export const Container = styled.header`
   align-items: center;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 6.4rem;
-  height: 11.6rem;
   width: 100%;
   background-color: var(--background);
   border-bottom: 0.1rem solid var(--border);
-  padding: 0 12.4rem;
+  padding: 2rem 12.4rem;
 `
 
 export const Logo = styled.div`

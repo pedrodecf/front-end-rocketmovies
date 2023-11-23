@@ -3,12 +3,13 @@ import styled from "styled-components"
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  display: grid;
-  grid-template-areas:
+  display: flex;
+  flex-direction: column;
+  /* grid-template-areas:
     "header"
     "description"
     "content"
-    "footer";
+    "footer"; */
   overflow-y: hidden;
 
   > main {
@@ -23,6 +24,7 @@ export const Description = styled.div`
   padding: 5.2rem 12.4rem;
   display: flex;
   justify-content: space-between;
+  
 
   > h2 {
     font-size: 3.2rem;

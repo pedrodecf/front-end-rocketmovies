@@ -9,26 +9,28 @@ import { useEffect, useState } from "react"
 import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom"
 
+
 export function Home() {
   const navigate = useNavigate()
   const [movies, setMovies] = useState([])
+  const [search, setSearch] = useState("")
 
   function handleViewMovie(id){
-    navigate(`/movie/${id}`)
+    navigate(`/view/${id}`)
   }
 
   useEffect(() => {
     async function fetchMovie() {
-      const response = await api.get("/movie?title&movie_tags")
+      const response = await api.get(`/movie?title=${search}`)
       setMovies(response.data)
-      console.log(response.data)
     }
     fetchMovie()
-  }, [])
+  }, [search])
+
 
   return (
     <Container>
-      <Header />
+      <Header setSearch={setSearch} />
       <Description>
         <h2>Meus filmes</h2>
         <Link to="/new">
