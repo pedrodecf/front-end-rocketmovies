@@ -12,8 +12,9 @@ export const Container = styled.div`
   border-radius: 1.6rem;
   background-color: var(--background-2);
   margin-bottom: 2.4rem;
+  cursor: pointer;
 
-  > a {
+  > h1 {
     color: var(--white);
     font-size: 2.4rem;
     font-weight: 700;

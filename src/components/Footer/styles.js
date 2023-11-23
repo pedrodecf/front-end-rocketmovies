@@ -3,12 +3,11 @@ import styled from "styled-components"
 export const Container = styled.footer`
   display: grid;
   grid-area: footer;
-  align-items: center;
+  align-items: end;
   justify-content: end;
-  height: 10rem;
+  height: 2rem;
   width: 100%;
-  background-color: none;
-  margin-top: 6rem;
+  margin: 2rem 0;
   padding-right: 12.4rem;
   font-size: 1.4rem;
   position: relative;

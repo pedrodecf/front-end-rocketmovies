@@ -1,12 +1,11 @@
 import { Container } from "./styles"
 import { Tag } from "../Tag"
 import { Rating } from "../../components/Rating"
-import { Link } from "react-router-dom"
 
-export function Note({ data }) {
+export function Note({ data, ...rest }) {
   return (
-    <Container>
-      <Link to="/view/:id">{data.title}</Link>
+    <Container {...rest}>
+      <h1>{data.title}</h1>
       <div className="rating-stars">
         {Array.from({ length: data.rating }, (_, i) => (
           <Rating $star key={i} />
@@ -17,9 +16,9 @@ export function Note({ data }) {
       </div>
       <p>{data.description}</p>
 
-      {data.tags && (
+      {data.movie_tags && (
         <footer>
-          {data.tags.map((tag) => (
+          {data.movie_tags.map((tag) => (
             <Tag key={tag.id} title={tag.name} />
           ))}
         </footer>

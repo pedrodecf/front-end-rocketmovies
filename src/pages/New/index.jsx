@@ -133,8 +133,8 @@ export function New() {
           <Button title="Salvar alterações" onClick={addNewMovie} />
         </ButtonsContainer>
 
-        <Footer />
       </main>
+        <Footer />
     </Container>
   )
 }

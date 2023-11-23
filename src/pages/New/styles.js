@@ -65,4 +65,5 @@ export const ButtonsContainer = styled.div`
   padding: 4rem 12.4rem 0;
   display: flex;
   gap: 6rem;
+  margin-bottom: 2rem;
 `

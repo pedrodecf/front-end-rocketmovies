@@ -12,6 +12,7 @@ export const Container = styled.div`
   overflow-y: hidden;
 
   > main {
+    height: 100%;
     grid-area: content;
     overflow-y: auto;
   }
@@ -21,7 +22,6 @@ export const Description = styled.div`
   grid-area: description;
   padding: 5.2rem 12.4rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
   > h2 {
