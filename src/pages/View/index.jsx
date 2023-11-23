@@ -6,9 +6,15 @@ import { RatingReview } from "../../components/RatingReview"
 import { Footer } from "../../components/Footer"
 import { Tag } from "../../components/Tag"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../hooks/auth"
+import { api } from "../../services/api"
 
 export function View() {
   const navigate = useNavigate()
+  const { signOut, user } = useAuth()
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : placeholderavatar
   return (
     <Container>
       <Header />
@@ -28,11 +34,8 @@ export function View() {
           />
         </div>
         <div className="user-details">
-          <img
-            src="https://github.com/pedrodecf.png"
-            alt="Foto de perfil do usuário"
-          />
-          <p>Por Pedro de Freitas</p>
+          <img src={avatarUrl} alt={user.name} />
+          <p>{user.name}</p>
           <MdAccessTime />
           <p>23/05/22 às 08:00</p>
         </div>
