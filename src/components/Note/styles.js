@@ -22,7 +22,7 @@ export const Container = styled.div`
 
   > p {
     color: var(--note-color);
-    font-family: 1.6rem;
+    font-family: 3.6rem;
     font-weight: 400;
     overflow: hidden;
     display: -webkit-box;

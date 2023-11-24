@@ -12,14 +12,9 @@ export const Container = styled.div`
     "footer"; */
   overflow-y: hidden;
 
-  > main {
-    height: 100%;
-    grid-area: content;
-    overflow-y: auto;
-  }
-
   > div.data {
     height: 100%;
+    overflow-y: auto;
   }
 `
 
@@ -89,6 +84,8 @@ export const Info = styled.div`
 `
 
 export const Resume = styled.div`
+  height: 100%;
+  overflow-y: auto;
   padding: 0 12.4rem 0;
   text-align: justify;
   font-size: 1.8rem;
