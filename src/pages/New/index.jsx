@@ -28,11 +28,12 @@ export function New() {
   const [newTag, setNewTag] = useState("")
 
   function handleAddTag() {
+    if (newTag === "") {
+      return alert("Você precisa escrever alguma coisa no marcador.")
+    }
     setTags((prevState) => [...prevState, newTag])
     setNewTag("")
   }
-
-  console.log(tags)
 
   function removeNewMovie() {
     if (confirm("Tem certeza que deseja excluir esse filme?") == true) {
@@ -55,6 +56,19 @@ export function New() {
 
     if (tags.length === 0) {
       return alert("Adicione ao menos um marcador ao filme.")
+    }
+
+    if (
+      rating > 6 ||
+      rating < 0 ||
+      rating !== 0 ||
+      rating !== 1 ||
+      rating !== 2 ||
+      rating !== 3 ||
+      rating !== 4 ||
+      rating !== 5
+    ) {
+      return alert("Adicione uma nota entre 0 e 5")
     }
 
     await api.post("/movie", {
@@ -132,9 +146,8 @@ export function New() {
           <Button title="Excluir filme" $delete onClick={removeNewMovie} />
           <Button title="Salvar alterações" onClick={addNewMovie} />
         </ButtonsContainer>
-
       </main>
-        <Footer />
+      <Footer />
     </Container>
   )
 }
