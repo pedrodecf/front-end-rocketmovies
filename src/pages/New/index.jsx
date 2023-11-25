@@ -58,16 +58,7 @@ export function New() {
       return alert("Adicione ao menos um marcador ao filme.")
     }
 
-    if (
-      rating > 6 ||
-      rating < 0 ||
-      rating !== 0 ||
-      rating !== 1 ||
-      rating !== 2 ||
-      rating !== 3 ||
-      rating !== 4 ||
-      rating !== 5
-    ) {
+    if (rating > 6 || rating < 0) {
       return alert("Adicione uma nota entre 0 e 5")
     }
 
